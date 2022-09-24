@@ -7,7 +7,7 @@ from collections import defaultdict
 # list representation
 
 
-class Graph:
+class IDDFS:
 
     def __init__(self, vertices):
 
@@ -51,67 +51,34 @@ class Graph:
 
 
 # Create a graph given in the above diagram
-g = Graph(10)
+g = IDDFS(9)
 g.addEdge('J', 'K')
-g.addEdge('J', 'K')
+g.addEdge('J', 'E')
 g.addEdge('J', 'I')
-g.addEdge('I', 'A')
-g.addEdge('A', 'O')
 g.addEdge('E', 'A')
 g.addEdge('E', 'L')
-g.addEdge('L', 'O')
+g.addEdge('A', 'D')
+g.addEdge('D', 'F')
+g.addEdge('D', 'M')
+g.addEdge('D', 'O')
+g.addEdge('F', 'G')
+g.addEdge('F', 'H')
+g.addEdge('G', 'H')
+g.addEdge('H', 'N')
+g.addEdge('G', 'D')
+g.addEdge('G', 'C')
+g.addEdge('C', 'B')
+g.addEdge('B', 'G')
 g.addEdge('K', 'L')
-
+g.addEdge('I', 'C')
 
 target = 'O'
-maxDepth = 1
+maxDepth = 10
 src = 'J'
 
 if g.IDDFS(src, target, maxDepth) == True:
-    print("Target is reachable from source " +
+    print("IDDFS Search Algorithm: Target is reachable from source " +
           "within max depth")
 else:
-    print("Target is NOT reachable from source " +
+    print("IDDFS Search Algorithm: Target is NOT reachable from source " +
           "within max depth")
-
-
-# graph = {
-#     'A': ['B', 'C'],
-#     'B': ['D', 'E'],
-#     'C': ['F', 'G'],
-#     'D': [],
-#     'E': [],
-#     'F': [],
-#     'G': []
-# }
-# path = list()
-
-
-# def DFS(currentNode, destination, graph, maxDepth, curList):
-#     curList.append(currentNode)
-#     if currentNode == destination:
-#         return True
-#     if maxDepth <= 0:
-#         path.append(curList)
-#         return False
-#     for node in graph[currentNode]:
-#         if DFS(node, destination, graph, maxDepth-1, curList):
-#             return True
-#         else:
-#             curList.pop()
-#     return False
-
-
-# def iterativeDDFS(currentNode, destination, graph, maxDepth):
-#     for i in range(maxDepth):
-#         curList = list()
-#         if DFS(currentNode, destination, graph, i, curList):
-#             return True
-#     return False
-
-
-# if not iterativeDDFS('A', 'E', graph, 3):
-#     print("Path is not available")
-# else:
-#     print("Path exists")
-#     print(path.pop())
