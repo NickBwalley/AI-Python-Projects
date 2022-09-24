@@ -70,17 +70,30 @@ def UCS_algorithm():
 
 
 def A_Star_Algorithm():
-    graph = [['A', 'B', 1, 3],
-             ['A', 'C', 2, 4],
-             ['A', 'H', 7, 0],
-             ['B', 'D', 4, 2],
-             ['B', 'E', 6, 6],
-             ['C', 'F', 3, 3],
-             ['C', 'G', 2, 1],
-             ['D', 'E', 7, 6],
-             ['D', 'H', 5, 0],
-             ['F', 'H', 1, 0],
-             ['G', 'H', 2, 0]]
+    graph = [['A', 'O', 151, 221],
+             ['A', 'D', 43, 221],
+             ['B', 'G', 171, 350],
+             ['C', 'B', 171, 400],
+             ['C', 'D', 126, 400],
+             ['D', 'O', 136, 326],
+             ['D', 'M', 200, 326],
+             ['E', 'A', 133, 500],
+             ['E', 'L', 110, 500],
+             ['F', 'G', 88, 209],
+             ['F', 'H', 130, 209],
+             ['G', 'H', 99, 188],
+             ['G', 'D', 123, 188],
+             ['H', 'N', 80, 92],
+             ['I', 'A', 109, 499],
+             ['I', 'C', 102, 499],
+             ['J', 'I', 172, 621],
+             ['J', 'E', 105, 621],
+             ['J', 'K', 146, 621],
+             ['K', 'E', 146, 668],
+             ['K', 'L', 152, 668],
+             ['L', 'O', 97, 300],
+             ['M', 'N', 67, 78],
+             ['O', 'M', 100, 170]]
     temp = []
     temp1 = []
     for i in graph:
@@ -116,7 +129,7 @@ def A_Star_Algorithm():
     costs[start_node] = 0
     A_star(graph, costs, open, closed, start_node)
     goal_node = input("Enter the Goal Node: ")
-    print("Path with least cost is: ", path[goal_node])
+    print("A-Star Search(least cost): ", path[goal_node])
 
 
 A_Star_Algorithm()

@@ -49,7 +49,8 @@ vertices = int(input("Please enter the number of vertices : "))
 g = Graph(vertices)
 
 for i in range(vertices):
-    x = input("Enter connections of Vertex " + str(i) + " as equally spaced integers : ")
+    x = input("Enter connections of Vertex " +
+              str(i) + " as equally spaced integers : ")
     x = x.split()
     x = [int(j) for j in x]
     for j in x:
