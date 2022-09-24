@@ -1,11 +1,25 @@
 # Using a Python dictionary to act as an adjacency list
 graph = {
-    'A': ['B', 'C'],
-    'B': ['D', 'E'],
-    'C': ['F'],
+    'J': ['E', 'I', 'K'],
+    'E': ['A', 'L'],
+    'L': ['O'],
+    'O': ['M'],
+    'M': ['N'],
+    'N': [],
+    'A': ['O', 'D'],
+    'D': ['F', 'O', 'M'],
+    'F': ['G', 'H'],
+    'G': ['H', 'D', 'C'],
+    'H': ['N'],
     'D': [],
-    'E': ['F'],
-    'F': []
+    'C': ['D', 'B'],
+    'G': [],
+    'B': ['G'],
+    'J': ['K'],
+    'K': ['E', 'L'],
+    'J': ['I'],
+    'I': ['C'],
+
 }
 
 visited = set()  # Set to keep track of visited nodes.
@@ -21,7 +35,7 @@ def dfs(visited, graph, node):
 
 # Driver Code
 print('DFS Algorithm Search:')
-dfs(visited, graph, 'A')
+dfs(visited, graph, 'J')
 
 
 # Using a Python dictionary to act as an adjacency list
