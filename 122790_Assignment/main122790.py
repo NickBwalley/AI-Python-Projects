@@ -1,8 +1,5 @@
 # STDNO: 122790 September 19, 2022
-# INSTRUCTIONS
-# 1. Go to the botton of this file and locate function calls
-# 2. Un-comment each function and run the code as per the question to get the result of each algorithm
-
+# Run the Code from the Terminal and view the output
 ######################################################################
 # UCS_Algorithm
 from collections import defaultdict
@@ -287,13 +284,6 @@ target = 'O'
 maxDepth = 10
 src = 'J'
 
-if g.IDDFS(src, target, maxDepth) == True:
-    print("IDDFS Search Algorithm: Target is reachable from source " +
-          "within max depth")
-else:
-    print("IDDFS Search Algorithm: Target is NOT reachable from source " +
-          "within max depth")
-
 
 ######################################################################
 # DFS ALGORITHM
@@ -344,3 +334,10 @@ graph1.a_star_algorithm('J', 'N')
 print('DFS Algorithm Search: ')
 dfs(visited, graph, 'J')
 print()
+
+if g.IDDFS(src, target, maxDepth) == True:
+    print("IDDFS Search Algorithm: Target is reachable from source " +
+          "within max depth")
+else:
+    print("IDDFS Search Algorithm: Target is NOT reachable from source " +
+          "within max depth")
