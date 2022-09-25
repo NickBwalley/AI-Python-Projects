@@ -10,31 +10,31 @@ from collections import deque
 
 
 def UCS_algorithm():
-    graph = [['J', 'K', 146],
-             ['J', 'I', 172],
-             ['J', 'E', 105],
+    graph = [['J', 'E', 105],
              ['K', 'E', 146],
              ['K', 'L', 152],
              ['E', 'L', 110],
-             ['E', 'A', 133],
+             ['J', 'K', 146],
+             ['J', 'I', 172],
              ['I', 'A', 109],
+             ['E', 'A', 133],
              ['A', 'O', 151],
-             ['L', 'O', 97],
-             ['I', 'C', 102],
-             ['C', 'D', 126],
-             ['A', 'D', 43],
              ['D', 'O', 136],
-             ['D', 'M', 200],
-             ['M', 'N', 67],
-             ['O', 'M', 100],
+             ['L', 'O', 97],
+             ['A', 'D', 43],
+             ['C', 'D', 126],
+             ['G', 'D', 123],
+             ['I', 'C', 102],
+             ['G', 'C', 140],
              ['C', 'B', 171],
              ['B', 'G', 171],
-             ['G', 'C', 140],
-             ['G', 'D', 123],
-             ['D', 'F', 111],
              ['F', 'G', 88],
-             ['G', 'H', 99],
+             ['D', 'F', 111],
              ['F', 'H', 130],
+             ['G', 'H', 99],
+             ['D', 'M', 200],
+             ['O', 'M', 100],
+             ['M', 'N', 67],
              ['H', 'N', 80]]
     temp = []
     temp1 = []
@@ -65,13 +65,13 @@ def UCS_algorithm():
         path[i] = ' '
     open = set()
     closed = set()
-    start_node = input("Enter the Start State: ")
+    start_node = 'E'
     open.add(start_node)
     path[start_node] = start_node
     costs[start_node] = 0
     UCS(graph, costs, open, closed, start_node)
-    goal_node = input("Enter the Goal State: ")
-    print("Uniform Cost Search (Least Path): ", path[goal_node])
+    goal_node = 'N'
+    print("Uniform Cost Search: J -> ", path[goal_node])
 
 
 ######################################################################
@@ -262,37 +262,37 @@ class IDDFS:
 
 
 # Create a graph given in the above diagram
-# g = IDDFS(9)
-# g.addEdge('J', 'K')
-# g.addEdge('J', 'E')
-# g.addEdge('J', 'I')
-# g.addEdge('E', 'A')
-# g.addEdge('E', 'L')
-# g.addEdge('A', 'D')
-# g.addEdge('D', 'F')
-# g.addEdge('D', 'M')
-# g.addEdge('D', 'O')
-# g.addEdge('F', 'G')
-# g.addEdge('F', 'H')
-# g.addEdge('G', 'H')
-# g.addEdge('H', 'N')
-# g.addEdge('G', 'D')
-# g.addEdge('G', 'C')
-# g.addEdge('C', 'B')
-# g.addEdge('B', 'G')
-# g.addEdge('K', 'L')
-# g.addEdge('I', 'C')
+g = IDDFS(9)
+g.addEdge('J', 'K')
+g.addEdge('J', 'E')
+g.addEdge('J', 'I')
+g.addEdge('E', 'A')
+g.addEdge('E', 'L')
+g.addEdge('A', 'D')
+g.addEdge('D', 'F')
+g.addEdge('D', 'M')
+g.addEdge('D', 'O')
+g.addEdge('F', 'G')
+g.addEdge('F', 'H')
+g.addEdge('G', 'H')
+g.addEdge('H', 'N')
+g.addEdge('G', 'D')
+g.addEdge('G', 'C')
+g.addEdge('C', 'B')
+g.addEdge('B', 'G')
+g.addEdge('K', 'L')
+g.addEdge('I', 'C')
 
-# target = 'O'
-# maxDepth = 10
-# src = 'J'
+target = 'O'
+maxDepth = 10
+src = 'J'
 
-# if g.IDDFS(src, target, maxDepth) == True:
-#     print("IDDFS Search Algorithm: Target is reachable from source " +
-#           "within max depth")
-# else:
-#     print("IDDFS Search Algorithm: Target is NOT reachable from source " +
-#           "within max depth")
+if g.IDDFS(src, target, maxDepth) == True:
+    print("IDDFS Search Algorithm: Target is reachable from source " +
+          "within max depth")
+else:
+    print("IDDFS Search Algorithm: Target is NOT reachable from source " +
+          "within max depth")
 
 
 ######################################################################
@@ -326,7 +326,7 @@ visited = set()  # Set to keep track of visited nodes.
 
 def dfs(visited, graph, node):
     if node not in visited:
-        print(node, end='')
+        print(node, end='-> ')
         visited.add(node)
         for neighbour in graph[node]:
             dfs(visited, graph, neighbour)
@@ -337,7 +337,10 @@ def dfs(visited, graph, node):
 
 # FUNCTION CALLS
 
-# UCS_algorithm()
-# graph1.a_star_algorithm('J', 'N')
-print('DFS Algorithm Search:')
+UCS_algorithm()
+# for A-Star Algorithm
+graph1.a_star_algorithm('J', 'N')
+# for DFS Search Algorithm
+print('DFS Algorithm Search: ')
 dfs(visited, graph, 'J')
+print()

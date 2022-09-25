@@ -39,10 +39,10 @@ for i in nodes:
     path[i] = ' '
 open = set()
 closed = set()
-start_node = input("Enter the Start State: ")
+start_node = 'S'
 open.add(start_node)
 path[start_node] = start_node
 costs[start_node] = 0
 UCS(graph, costs, open, closed, start_node)
-goal_node = input("Enter the Goal State: ")
+goal_node = 'G'
 print("Path with least cost is: ", path[goal_node])
